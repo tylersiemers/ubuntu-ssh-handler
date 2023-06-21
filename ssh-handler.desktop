@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Exec=<Path to executable ssh-handler-script> -s %u -t <path to ssh application executable> -o <options that can be passed into -t application>
+Icon=roxterm
+StartupNotify=true
+Terminal=false
+Categories=Utility;X-XFCE;X-Xfce-Toplevel;
+MimeType=x-scheme-handler/ssh
+Name=SSH Launcher
+Comment=Launch SSH
