@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+import sys
+from os import system
+import argparse
+from urllib.parse import urlparse
+
+def main():
+	parser = argparse.ArgumentParser(description="Open a custom Terminal Session with or without Options")
+	parser.add_argument('-s', required=True, help='the raw ssh handler link, ssh://hostname')
+	parser.add_argument('-t', required=True, help='Absolute path to the terminal appication you want to use to open the ssh handler')
+	parser.add_argument('-o', nargs='+', help='Terminal CMD line options, space seperated options, any option that contains a space must be escaped with \, ex. -o /T /SSH2 /CREDENTIALS\ credName')
+
+	args = parser.parse_args()
+	terminal_path = args.t
+	uri = args.s
+	options = args.o
+
+	uri_parsed = urlparse(uri)
+	uri_hostname = uri_parsed.hostname
+
+	if options != None:
+		scrt_cmd = f'{terminal_path} {" ".join(options)} {uri_hostname}'
+		return system(scrt_cmd)
+	else:
+		scrt_cmd = f'{terminal_path} {uri_hostname}'
+		return system(scrt_cmd)
+
+main()
