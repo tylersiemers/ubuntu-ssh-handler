@@ -1,0 +1,15 @@
+Example Desktop File
+
+Launch SecureCRT using new tab with custom credentials account
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Exec=/home/tjones/.local/share/applications/ssh-handler-script -s %u -t /usr/bin/SecureCRT -o /T /SSH2 /CREDENTIALS\\ cred_acct
+Icon=roxterm
+StartupNotify=true
+Terminal=false
+Categories=Utility;X-XFCE;X-Xfce-Toplevel;
+MimeType=x-scheme-handler/ssh
+Name=SSH Launcher
+Comment=Launch SSH
